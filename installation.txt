@@ -1,0 +1,44 @@
+	:Installation:
+	
+	1. Donwload NODE JS
+-		https://nodejs.org/en/download/
+		After installation
+
+	- open command prompt
+		-> node -v
+		-> npm -v
+
+	2. Download VS Code -- Development Editor
+		-https://code.visualstudio.com/download
+	
+	3. Download GIT
+		- Source Control
+		- https://git-scm.com/downloads
+		- open command prompt
+		-> git
+	4. Install Angular CLI
+ 
+		- open command promt
+		> npm install -g @angular/cli
+	
+		->ng version
+
+	5. Class Repository URL
+
+		https://github.com/keyur2714/E_8_Angular_9
+
+	- clone repository
+	 git clone https://github.com/keyur2714/E_8_Angular_9.git
+	
+	Ethans
+		- E_8_Angular_9
+			- right click & git bash here
+			- git pull
+
+
+		
+
+	
+
+	
+	
