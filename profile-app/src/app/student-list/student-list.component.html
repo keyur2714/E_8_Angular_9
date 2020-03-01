@@ -1,0 +1,20 @@
+<!-- <ul>
+    <li>{{studentNames[0]}}</li>
+    <li>{{studentNames[1]}}</li>
+    <li>{{studentNames[2]}}</li>
+    <li>{{studentNames[3]}}</li>
+    <li>{{studentNames[4]}}</li>
+</ul> -->
+<ul>
+    <li *ngFor="let name of studentNames">
+        {{name}}
+    </li>
+</ul>
+<table class="table table-bordered bg-dark text-white">
+    <tr *ngFor="let n of studentNames">
+        <td>{{n}}</td>
+    </tr>
+</table>
+
+
+
