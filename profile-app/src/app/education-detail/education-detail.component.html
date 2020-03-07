@@ -1,0 +1,18 @@
+<table class="table table-bordered bg-warning text-danger">
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>University</th>
+            <th>Degree</th>
+            <th>Per</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let education of educationList">
+            <td>{{education.year}}</td>
+            <td>{{education.uni}}</td>
+            <td>{{education.degree}}</td>
+            <td>{{education.per}}</td>
+        </tr>
+    </tbody>
+</table>
