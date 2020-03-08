@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row bg-info form-group">
+    <div class="col">
+      <hr />
+      With Local Reference Variable.
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-4">
+      Enter Any String:
+    </div>
+    <div class="col-sm-4">
+      <input type="text" name=str class="form-control" #str (blur)="getValue(str.value)" />
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-info" (click)="sayHello(str.value)">Submit</button>
+    </div>
+  </div>
+  <div class="row bg-danger form-group">
+      <div class="col">
+        <hr />
+        With Data Bindind.. 
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-4">
+        Enter Any Name:
+      </div>
+      <div class="col-sm-4">
+        <input type="text" name=name class="form-control" [(ngModel)]="name" />
+        {{name}}
+      </div>
+      <div class="col-sm-4">
+        <button class="btn btn-info" (click)="save()">Save</button>
+      </div>
+  </div>
+  <div class="row form-group">
+    <div class="col"> 
+      <app-string-operation></app-string-operation>
+    </div>  
+  </div>
+</div>
