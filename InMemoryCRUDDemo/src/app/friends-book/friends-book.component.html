@@ -1,0 +1,38 @@
+<div class="row" *ngIf="msg !== ''">
+    <div class="col alert alert-info">
+        {{msg}}
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col">
+        Friend Name: 
+    </div>
+    <div class="col">
+        <input type="text" name=friendName class="form-control" [(ngModel)]="name">
+    </div>
+    <div class="col">
+        <button class="btn btn-info" (click)="addFriend()" *ngIf="updateIdx === -1">Add</button>
+        <button class="btn btn-info" (click)="updateFriend()" *ngIf="updateIdx !== -1">Update</button>        
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col">
+        <table class="table table-bordered bg-dark text-warning">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fn of friendNames;let i=index">
+                    <td>{{fn}}</td>
+                    <td>
+                        <button class="btn btn-success m-1" (click)="edit(i)">Edit</button>
+                        <button class="btn btn-danger m-1" (click)="delete(i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
