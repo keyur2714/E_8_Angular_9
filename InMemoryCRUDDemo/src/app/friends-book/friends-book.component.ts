@@ -37,6 +37,7 @@ export class FriendsBookComponent implements OnInit {
       this.msg = '';
       this.friendNames[this.updateIdx] = this.name;
       this.updateIdx = -1;
+      this.name = '';
     }    
   }
 

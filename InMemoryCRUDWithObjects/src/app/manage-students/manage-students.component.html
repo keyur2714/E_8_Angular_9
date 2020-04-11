@@ -1,0 +1,65 @@
+<div class="row form-group">
+    <div class="col-sm-4">
+        Roll No : 
+    </div>
+    <div class="col-sm-4">
+        <input type="text" name=rollNo class="form-control" [(ngModel)]="student.rollNo">
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        Name : 
+    </div>
+    <div class="col-sm-4">
+        <input type="text" name=name class="form-control" [(ngModel)]="student.name">
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        Std : 
+    </div>
+    <div class="col-sm-4">
+        <input type="text" name=std class="form-control" [(ngModel)]="student.std">
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        Mobile No : 
+    </div>
+    <div class="col-sm-4">
+        <input type="text" name=mobileNo class="form-control" [(ngModel)]="student.mobileNo">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn btn-info" (click)="save()" *ngIf="!isUpdate">Save</button>
+        <button class="btn btn-info" (click)="update()" *ngIf="isUpdate">Update</button>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header bg-warning text-success">
+        Manage Students
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Std.</th>
+                    <th>Mobile No</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of studentList">
+                    <td>{{student.rollNo}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.std}}</td>
+                    <td>{{student.mobileNo}}</td>
+                    <td><button class="btn btn-success m-1" (click)="edit(student.rollNo)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
