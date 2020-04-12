@@ -57,7 +57,10 @@
                     <td>{{student.name}}</td>
                     <td>{{student.std}}</td>
                     <td>{{student.mobileNo}}</td>
-                    <td><button class="btn btn-success m-1" (click)="edit(student.rollNo)">Edit</button></td>
+                    <td>
+                        <button class="btn btn-success m-1" (click)="edit(student.rollNo)">Edit</button>
+                        <button class="btn btn-danger m-1" (click)="delete(student.rollNo)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -53,4 +53,14 @@ export class ManageStudentsComponent implements OnInit {
     this.student = this.studentList.find(s=>s.rollNo==rollNo);    
     this.isUpdate = true;
   }
+
+  delete(rollNo) : void{
+    let confirmMsg = confirm("Are you sure want to delete student with "+rollNo);
+    if(confirmMsg){
+      let stud = this.studentList.find(s=>s.rollNo==rollNo);
+      let idx = this.studentList.indexOf(stud);
+      this.studentList.splice(idx,1);    
+      alert("Student Deleted with RollNo "+rollNo);
+    }    
+  }
 }
