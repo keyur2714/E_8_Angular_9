@@ -1,0 +1,24 @@
+
+	
+	<button [type]="button" (click)="save()">OK</button>
+
+	<app-message [message]="'Hello'" (getCapsMessage)="getMsg($event)"></app-message>
+
+
+	
+	personListComponent.html
+
+	<app-my-table [dataList]="personList" (getSelectedRow)="selectedItem($event)">
+	</app-my-table>
+
+	selectedItem(item){
+		alert(item.name);
+	}
+
+	app-my-table
+		
+		@Input() dataList any[] = [];
+
+		@Output() getSelectedRow : any = {};
+
+	

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row form-group">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <app-message></app-message>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col">
+        <app-message [message]="'Hello...!'" (getCapsMessage)="getCapitalMsg($event)"></app-message>
+      </div>
+      <div class="col">
+        Capital Message : {{capitalMessage}}
+      </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <app-message *ngFor="let m of messages" [message]="m">
+      </app-message>
+    </div>  
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <app-registration></app-registration>
+    </div>
+  </div>
+</div>

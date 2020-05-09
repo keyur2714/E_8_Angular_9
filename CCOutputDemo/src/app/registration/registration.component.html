@@ -1,0 +1,24 @@
+<div class="row form-group">
+    <div class="col">
+        Select Country :
+    </div>
+    <div class="col">
+        <app-my-dropdown [dataList]="countryList" [selectedItem]="selectedCountry" (getSelectedItem)="getCountry($event)"></app-my-dropdown>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col">
+        Select State :
+    </div>
+    <div class="col">
+        <app-my-dropdown [dataList]="stateList" [selectedItem]="selectedState" (getSelectedItem)="getState($event)"></app-my-dropdown>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col">
+        User Selected Country is {{selectedCountry.desc}}
+    </div>
+    <div class="col">
+        User Selected State is {{selectedState.desc}}
+    </div>
+</div>
