@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header bg-warning text-danger">
+        Manage Students
+    </div>
+    <div class="card-body">
+        <app-my-table
+            [dataList]="studentList"
+            [headerList]="headerList"
+            [fieldList]="fieldList"
+            [bgColor]="'dark'"
+            [textColor]="'danger'"
+            (getSelectedRow)="getRow($event)"
+        >
+        </app-my-table>
+        <!-- <table class="table table-striped bg-dark text-info">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of studentList">
+                    <td>{{student.id}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.mobileNo}}</td>
+                    <td>{{student.email}}</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        Selected Student is : {{selectedStudent?.name}}, {{selectedStudent?.mobileNo}} 
+    </div>
+</div>

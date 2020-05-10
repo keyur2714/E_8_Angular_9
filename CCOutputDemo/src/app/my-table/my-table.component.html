@@ -1,0 +1,14 @@
+<table class="table table-striped bg-{{bgColor}} text-{{textColor}}">
+    <thead>
+        <tr>
+            <th *ngFor="let header of headerList">
+                {{header}}
+            </th>
+        </tr>
+        <tr *ngFor="let data of dataList" (click)="setSelectedRow(data)">
+            <td *ngFor="let field of fieldList">
+                {{data[field]}}
+            </td>
+        </tr>
+    </thead>
+</table>
