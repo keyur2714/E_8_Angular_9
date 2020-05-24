@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row form-group">
+    <div class="col">
+      <h1 #tit>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <select name="select color" #selectColor (change)="changeStyle(selectColor.value)">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <span app-basic>Hello Radhe Krishna...!</span>
+    </div>
+    <div class="col">
+      <p app-basic>Good Afternoon...!</p>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      Name : <input type="text" name=nm app-basic>
+    </div>
+    <div class="col">
+      <button app-basic>OK</button>      
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <table appColor [color]="tableColor" [bgColor]="'orange'">
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr>
+          <td>keyur</td>
+        </tr>
+        <tr>
+          <td>denish</td>
+        </tr>
+        <tr>
+          <td>vinit</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
