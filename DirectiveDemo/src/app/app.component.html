@@ -47,4 +47,30 @@
       </table>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <p *appMyIf="msg !== ''">
+        {{msg}}
+      </p>
+    </div>
+    <div class="col">
+      <h3 *appMyLoop="loopCounter;extra:'hi'">Hello Radhe Krishna...!</h3>
+    </div>
+  </div>
+
+  <ng-template [appMyLoop]="3" [appMyLoopExtra]="'Hello'">
+    <h2>keyur</h2>
+  </ng-template>
+
+  <div *ngIf="feelings === 'good' then ifBlock;else elseBlock"></div>
+
+  <ng-template #ifBlock>
+    Hi i am Good
+  </ng-template>
+
+  <ng-template #elseBlock>
+    Hi i not Good
+  </ng-template>
+
 </div>

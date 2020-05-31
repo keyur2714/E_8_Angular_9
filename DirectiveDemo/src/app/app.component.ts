@@ -8,8 +8,12 @@ import { BasicStyle } from './directives/basic-styles';
 })
 export class AppComponent {
   title = 'DirectiveDemo';
-
+  feelings = 'notgood';
   tableColor : string = 'blue';
+
+  loopCounter : number = 10;
+
+  msg : string = '';
 
 
   @ViewChild("tit",{static : false})
