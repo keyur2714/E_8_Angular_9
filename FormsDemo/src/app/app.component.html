@@ -1,0 +1,58 @@
+<div class="container">
+  <form #frm=ngForm (ngSubmit)="save(frm)">
+  <div class="row form-group">
+    <div class="col-sm-4">
+      Name:
+    </div>
+    <div class="col-sm-4">    
+        <input type="text" class="form-control" name=name ngModel required pattern="^[a-zA-Z]+$" #name=ngModel>          
+    </div>
+    <div class="col-sm-4" *ngIf="name.invalid && name.touched">
+      <span *ngIf="name.errors['required']">
+          Name is required Field.
+      </span>
+      <span *ngIf="name.errors['pattern']">
+          Name is Invalid only Alphabets are allowed.
+      </span>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-4">
+        City:
+      </div>
+      <div class="col-sm-4">    
+          <input type="text" class="form-control" name=city minlength="3" ngModel required #city=ngModel>          
+      </div>
+      <div class="col-sm-4" *ngIf="city.invalid && city.touched">
+        <span *ngIf="city.errors['required']">City is required Field.</span>
+        <span *ngIf="city.errors['minlength']">City is min 3 Character.</span>
+      </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-4">
+      Email:
+    </div>
+    <div class="col-sm-4">
+      <input type="text" name=email class="form-control" ngModel email required #email=ngModel>
+    </div>
+    <div class="col-sm-4" *ngIf="email.invalid && email.touched">
+        <span *ngIf="email.errors['required']">Email is required Field.</span>
+        <span *ngIf="email.errors['email']">Email is Invalid.</span>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+        <button class="btn btn-primary" >Submit</button>
+    </div>
+  </div>
+</form>
+<div class="row form-group" *ngIf="isSubmitted"> 
+  <div class="col">
+    <ul>
+      <li>Name: {{customer.name}}</li>
+      <li>City: {{customer.city}}</li>
+      <li>Email: {{customer.email}}</li>
+    </ul>    
+  </div>
+</div>
+</div>
