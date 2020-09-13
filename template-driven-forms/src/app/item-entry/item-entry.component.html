@@ -1,40 +1,46 @@
+<a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+
 <form #frm=ngForm (ngSubmit)="save(frm)">
     <div class="row form-group">
         <div class="col-sm-2"><sup>*</sup>Item # : </div>
         <div class="col-sm-4">
-            <input type="text" name=itemNo class="form-control" required ngModel #itemNo=ngModel/>
+            <input type="text" name=itemId class="form-control" required [(ngModel)]="item.itemId" #itemId=ngModel/>
         </div>
-        <div class="col-sm-4" *ngIf="itemNo.invalid && itemNo.touched">
-            <span>Item No is Required Field.</span>
+        <div class="col-sm-4" *ngIf="itemId.invalid && itemId.touched">
+            <span>Item Id is Required Field.</span>
         </div>
     </div>
     <div class="row form-group">
         <div class="col-sm-2"><sup>*</sup>Item Name : </div>
         <div class="col-sm-4">
-            <input type="text" name=itemName class="form-control" required ngModel #itemName=ngModel/>
+            <input type="text" name=itemName class="form-control" required minlength="3" [(ngModel)]="item.itemName" #itemName=ngModel/>
         </div>
         <div class="col-sm-4" *ngIf="itemName.invalid && itemName.touched">
-            <span>Item Name is Required Field.</span>
+            <span *ngIf="itemName.errors['required']">Item Name is Required Field.</span>
+            <span *ngIf="itemName.errors['minlength']">Item Name is Min 3 Character.</span>
         </div>
     </div>
     <div class="row form-group">
         <div class="col-sm-2">Description : </div>
         <div class="col-sm-4">
-            <textarea name="description" id="description" cols="30" rows="5" class="form-control" ngModel></textarea>
+            <textarea name="description" id="description" cols="30" rows="5" class="form-control" [(ngModel)]="item.description"></textarea>
         </div>
     </div>
     <div class="row form-group">
         <div class="col-sm-2"><sup>*</sup>Item Price : </div>
         <div class="col-sm-4">
-            <input type="text" name=itemPrice class="form-control" required ngModel #itemPrice=ngModel/>
+            <input type="text" name=itemPrice class="form-control" required [(ngModel)]="item.itemPrice" #itemPrice=ngModel pattern="^[0-9]+[.]*[0-9]+$"/>
+            <!-- {{item.itemPrice}} -->
         </div>
         <div class="col-sm-4" *ngIf="itemPrice.invalid && itemPrice.touched">
-            <span>Item Price is Required Field.</span>
+            <span *ngIf="itemPrice.errors['required']">Item Price is Required Field.</span>
+            <span *ngIf="itemPrice.errors['pattern']">Invalid Price Format it should be [10.10 or 11].</span>
         </div>
     </div>
     <div class="row form-group">
         <div class="col">
-            <button class="btn btn-success" [disabled]="frm.invalid">Submit</button>
+            <button class="btn btn-success m-1" >Submit</button>
+            <button class="btn btn-dark m-1" type="button" (click)="reset()">Reset</button>
         </div>
     </div>
 </form>
@@ -43,7 +49,7 @@
         <table class="table table-bordered bg-dark text-info">
             <tr>
                 <th>Item #</th>
-                <th>{{item.itemNo}}</th>
+                <th>{{item.itemId}}</th>
             </tr>
             <tr>
                     <th>Item Name</th>
