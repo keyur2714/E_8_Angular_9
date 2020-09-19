@@ -1,0 +1,101 @@
+<form [formGroup]="contactForm" (ngSubmit)="save()">
+    <div class="row form-group">
+        <div class="col-sm-2">
+            <sup>*</sup>Firstname :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="firstName" formControlName="firstName" class="form-control" >
+        </div>
+        <div class="col-sm-4" *ngIf="contactForm.get('firstName').invalid && contactForm.get('firstName').touched">
+            <span *ngIf="contactForm.get('firstName').errors['required']">
+                First Name is required field.
+            </span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-2">
+            Lastname :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="lastName" formControlName="lastName" class="form-control" >
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-2">
+            <sup>*</sup>Mobile No :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="mobileNo" formControlName="mobileNo" class="form-control" >
+        </div>
+        <div class="col-sm-4" *ngIf="contactForm.get('mobileNo').invalid && contactForm.get('mobileNo').touched">
+            <span *ngIf="contactForm.get('mobileNo').errors['required']">
+                Mobile Number required field.
+            </span>
+            <span *ngIf="contactForm.get('mobileNo').errors['minlength']">
+                Mobile Number min 10 Char.
+            </span>
+            <span *ngIf="contactForm.get('mobileNo').errors['maxlength']">
+                Mobile Number max 10 Char.
+            </span>
+            <span *ngIf="contactForm.get('mobileNo').errors['pattern']">
+                Only Digits Allowed in Mobile Number.
+            </span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-2">
+            <sup>*</sup>Email :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="email" formControlName="email" class="form-control" >
+        </div>
+        <div class="col-sm-4" *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
+            <span *ngIf="contactForm.get('email').errors['required']">
+                Email is required field.
+            </span>
+            <span *ngIf="contactForm.get('email').errors['email']">
+                Invalid Email Address.
+            </span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-2">
+            Gender :
+        </div>
+        <div class="col-sm-4">
+            <input type="radio" name="gender" formControlName="gender" value="M" >Male
+            <input type="radio" name="gender" formControlName="gender" value="F" >FeMale
+        </div>
+    </div>    
+    <div class="row form-group">
+        <div class="col">
+            <button class="btn btn-dark" [disabled]="contactForm.invalid">Submit</button>
+        </div>
+    </div>
+</form>
+<div class="row p-1" *ngIf="isSubmitted">
+    <div class="col">
+        <table class="table table-bordered">
+            <tr>
+                <th>Firstname : </th>
+                <td>{{contact.firstName}}</td>
+            </tr>
+            <tr>
+                <th>Lastname : </th>
+                <td>{{contact.lastName}}</td>
+            </tr>
+            <tr>
+                <th>Mobile No : </th>
+                <td>{{contact.mobileNo}}</td>
+            </tr>
+            <tr>
+                <th>Email : </th>
+                <td>{{contact.email}}</td>
+            </tr>
+            <tr>
+                <th>Gender : </th>
+                <td>{{contact.gender}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
