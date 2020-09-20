@@ -42,22 +42,19 @@
             </span>
         </div>
     </div>
-    <div class="row form-group">
-        <div class="col-sm-2">
-            <sup>*</sup>Email :
+    <div formArrayName="emails">
+        <div class="row form-group" *ngFor="let emailControl of contactForm.get('emails').controls;let i=index">        
+            <div class="col-sm-2">
+                <sup>*</sup>Email - {{i+1}} :
+            </div>
+            <div class="col-sm-4">
+                <input type="text" name="email" [formControlName]="i" class="form-control" >
+            </div>
+            <div class="col-sm-4">
+                <a class="btn btn-info" (click)="addEmail()">Add More</a>
+            </div>           
         </div>
-        <div class="col-sm-4">
-            <input type="text" name="email" formControlName="email" class="form-control" >
-        </div>
-        <div class="col-sm-4" *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
-            <span *ngIf="contactForm.get('email').errors['required']">
-                Email is required field.
-            </span>
-            <span *ngIf="contactForm.get('email').errors['email']">
-                Invalid Email Address.
-            </span>
-        </div>
-    </div>
+    </div>    
     <div class="row form-group">
         <div class="col-sm-2">
             Gender :
@@ -89,8 +86,12 @@
                 <td>{{contact.mobileNo}}</td>
             </tr>
             <tr>
-                <th>Email : </th>
-                <td>{{contact.email}}</td>
+                <th>Emails : </th>
+                <td>
+                    <ul *ngFor="let email of contact.emails">
+                        <li>{{email}}</li>
+                    </ul>                    
+                </td>
             </tr>
             <tr>
                 <th>Gender : </th>

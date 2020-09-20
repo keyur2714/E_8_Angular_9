@@ -1,0 +1,68 @@
+<form [formGroup]="productEntryForm" (ngSubmit)="save()">
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Category # : 
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="categoryId" formControlName="categoryId" class="form-control">
+        </div>
+        <div class="col-sm-4" *ngIf="productEntryForm.get('categoryId').invalid && productEntryForm.get('categoryId').touched">
+            CategoryId is mandatory Field.
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Category Name : 
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="categoryName" formControlName="categoryName" class="form-control">
+        </div>
+        <div class="col-sm-4" *ngIf="productEntryForm.get('categoryName').invalid && productEntryForm.get('categoryName').touched">
+            CategoryName is mandatory Field.
+        </div>
+    </div>
+    <div formArrayName="items">
+            <div *ngFor="let item of productEntryForm.get('items').controls;let i=index" [formGroupName]="i">
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        Item Id : 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="id" formControlName="id" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        Item Name : 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="Name" formControlName="name" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        Quantity : 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="qty" formControlName="qty" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        Price : 
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="price" formControlName="price" class="form-control">
+                    </div>
+                </div>
+            </div>   
+    </div>
+    <div>
+        <button class="btn btn-dark" (click)="addItem()">Add New Item</button>
+    </div>    
+    <div class="row form-group">
+        <div class="col">
+            <button class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>

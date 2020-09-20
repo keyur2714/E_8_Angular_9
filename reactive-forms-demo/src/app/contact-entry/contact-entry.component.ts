@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Contact } from './contact.mode';
 
 @Component({
@@ -25,7 +25,7 @@ export class ContactEntryComponent implements OnInit {
       firstName : new FormControl('',Validators.required),
       lastName : new FormControl(''),
       mobileNo : new FormControl('',[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern("^[0-9]+$")]),
-      email : new FormControl('',[Validators.required,Validators.email]),
+      emails : new FormArray([new FormControl('')]),
       gender : new FormControl('F')
     })
   }
@@ -41,5 +41,10 @@ export class ContactEntryComponent implements OnInit {
       }
       this.isSubmitted = true;
     }    
+  }
+
+  addEmail() : void {
+    let emailControl = new FormControl();
+    (<FormArray>this.contactForm.controls['emails']).push(emailControl);
   }
 }
