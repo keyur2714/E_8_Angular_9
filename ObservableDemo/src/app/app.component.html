@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row form-group">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <span>{{seqNum}}</span>
+    </div>
+    <div class="col">
+      <button class="btn btn-info" (click)="stop()">Stop</button>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <button class="btn btn-info" (click)="start()">Start Power</button>
+    </div>
+    <div class="col">
+      <span>{{powValue}}</span>
+    </div>
+  </div>
+</div>
