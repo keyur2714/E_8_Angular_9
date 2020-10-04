@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, interval, Subscription } from 'rxjs';
 import { map,filter, reduce } from 'rxjs/operators';
+import { Plugins } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',

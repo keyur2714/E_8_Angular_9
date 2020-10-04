@@ -1,0 +1,19 @@
+<div>
+    <button class="btn btn-info" (click)="save()">Add User</button>
+</div>
+<table class="table table-bordered bg-dark text-info">
+   <tr>
+      <th>Id</th> 
+      <th>Username</th>
+      <th>Password</th>
+      <th>Role</th>
+      <th>Token</th>
+   </tr>
+   <tr *ngFor="let user of allUsers">
+       <td>{{user.id}}</td>
+       <td>{{user.username}}</td>
+       <td>{{user.password}}</td>
+       <td>{{user.role}}</td>
+       <td>{{user.token}}</td>
+   </tr>
+</table>
