@@ -1,6 +1,59 @@
-<div>
-    <button class="btn btn-info" (click)="save()">Add User</button>
+<div class="row">
+    <div class="col">
+        <form #frm=ngForm (ngSubmit)="save(frm)">
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    Id:
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" name=id [(ngModel)]="user.id" #id=ngModel required class="form-control">
+                </div>
+                <div class="col-sm-4" *ngIf="id.invalid && id.touched">
+                    Id is Mandatory Field.
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    Username:
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" name=username [(ngModel)]="user.username" #username=ngModel required class="form-control">
+                </div>
+                <div class="col-sm-4" *ngIf="username.invalid && username.touched">
+                    Username is Mandatory Field.
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    Password:
+                </div>
+                <div class="col-sm-4">
+                    <input type="password" name=password [(ngModel)]="user.password" #password=ngModel required class="form-control">
+                </div>
+                <div class="col-sm-4" *ngIf="password.invalid && password.touched">
+                    Password is Mandatory Field.
+                </div>
+            </div>      
+            <div class="row">
+                <div class="col-sm-4">Role:</div>
+                <div class="col">
+                    <select name="role" [(ngModel)]="user.role" class="form-control">
+                        <option value="-1">-:Select Role:-</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                </div>
+            </div>      
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-info" (click)="save()" [disabled]="frm.invalid" *ngIf="! isUpdate">Save User</button>
+                    <button class="btn btn-info" (click)="update(frm)" [disabled]="frm.invalid" *ngIf="isUpdate">Update User</button>        
+                </div>
+            </div>            
+        </form>
+    </div> 
 </div>
+
 <table class="table table-bordered bg-dark text-info">
    <tr>
       <th>Id</th> 
@@ -8,6 +61,7 @@
       <th>Password</th>
       <th>Role</th>
       <th>Token</th>
+      <th>Action</th>
    </tr>
    <tr *ngFor="let user of allUsers">
        <td>{{user.id}}</td>
@@ -15,5 +69,9 @@
        <td>{{user.password}}</td>
        <td>{{user.role}}</td>
        <td>{{user.token}}</td>
+       <td>
+           <button class="btn btn-success m-1" (click)="edit(user.id)">Edit</button>
+           <button class="btn btn-danger m-1" (click)="delete(user.id)">Delete</button>
+        </td>
    </tr>
 </table>

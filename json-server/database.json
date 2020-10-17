@@ -4,14 +4,14 @@
       "id": 1,
       "username": "keyur",
       "password": "India@27",
-      "role": "Admin",
+      "role": "admin",
       "token": "keyurjava"
     },
     {
       "id": 2,
       "username": "denish",
       "password": "JayHind@26",
-      "role": "User",
+      "role": "user",
       "token": "denishjava"
     },
     {
