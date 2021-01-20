@@ -1,0 +1,18 @@
+<table class="table table-bordered bg-warning text-info">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of itemList">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+        </tr>
+    </tbody>
+</table>
