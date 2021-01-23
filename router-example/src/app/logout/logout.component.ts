@@ -13,6 +13,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isLoggedIn = false;
+    this.authService.successUrl = 'home';
     this.router.navigate(['login']);
   }
 

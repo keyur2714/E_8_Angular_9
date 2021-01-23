@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ItemComponent } from './admin/item/item.component';
 import { ItemEntryComponent } from './admin/item-entry/item-entry.component';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { ItemEntryComponent } from './admin/item-entry/item-entry.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,16 +8,19 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ItemComponent } from './admin/item/item.component';
 import { ItemEntryComponent } from './admin/item-entry/item-entry.component';
+import { AuthGuardService } from './auth-guard.service';
 
 
 const routes: Routes = [
   {path : 'home' , component : HomeComponent},
   {path : 'contact-us' , component : ContactUsComponent},
-  {path : 'about-us' , component : AboutUsComponent},
+  {path : 'about-us' , component : AboutUsComponent,canActivate : [AuthGuardService]},
   {
-    path : 'admin' , component : AdminComponent,
+    path : 'admin' , component : AdminComponent,canActivate : [AuthGuardService],canActivateChild : [AuthGuardService],
     children : [
-      {path : 'item' , component : ItemComponent},
+      {
+        path : 'item' , component : ItemComponent
+      },
       {
         path : 'item-entry' , component : ItemEntryComponent        
       }

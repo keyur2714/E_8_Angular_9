@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     }else{
       if(this.authService.authenticate(this.username,this.password)){
         this.isLoggedIn = true;
-        this.router.navigate(['home']);
+        this.router.navigate([this.authService.successUrl,{msg: 'Welcome'}]);
       }else{
         alert("Invalid Username or Password.");
       }
