@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   username : String = '';
   password : String = '';
   isLoggedIn : boolean = false;
+  loggedInUser : User;
 
   constructor(private router : Router,private authService : AuthenticationService) { }
 
@@ -22,12 +24,17 @@ export class LoginComponent implements OnInit {
     if(this.username === '' || this.password === ''){
       alert("Please Enter Uername and Password.");
     }else{
-      if(this.authService.authenticate(this.username,this.password)){
-        this.isLoggedIn = true;
-        this.router.navigate([this.authService.successUrl,{msg: 'Welcome'}]);
-      }else{
-        alert("Invalid Username or Password.");
-      }
+      this.authService.authenticate(this.username,this.password).subscribe(
+        (user)=>{
+          this.loggedInUser = user;
+          if(this.loggedInUser === undefined){
+            alert("Invalid Username or Password.");
+          }else{
+            this.isLoggedIn = true;
+            this.router.navigate([this.authService.successUrl,{msg: 'Welcome'}]);
+          }
+        }
+      )      
     }
 
   }

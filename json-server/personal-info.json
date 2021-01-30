@@ -17,6 +17,56 @@
       "token": "ABCD1234444"
     }
   ],
+  "items": [
+    {
+      "id": 1,
+      "code": "GNTEA",
+      "itemName": "Ginger Tea",
+      "price": 15
+    },
+    {
+      "id": 2,
+      "code": "GTEA",
+      "itemName": "Green Tea",
+      "price": "15"
+    },
+    {
+      "id": 3,
+      "code": "MTEA",
+      "itemName": "Massala Tea",
+      "price": 20
+    },
+    {
+      "id": 4,
+      "code": "TEA",
+      "itemName": "Regular Tea",
+      "price": 10
+    },
+    {
+      "id": 5,
+      "code": "COFFEE",
+      "itemName": "Hot Coffee",
+      "price": 20
+    },
+    {
+      "id": 6,
+      "code": "BCOFFEE",
+      "itemName": "Black Coffee",
+      "price": 25
+    },
+    {
+      "id": "7",
+      "code": "CR",
+      "itemName": "Cream Roll",
+      "price": "10"
+    },
+    {
+      "id": "8",
+      "code": "BB",
+      "itemName": "Bread Butter",
+      "price": "20"
+    }
+  ],
   "personList": [
     {
       "id": 27,

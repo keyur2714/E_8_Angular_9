@@ -1,18 +1,22 @@
-<table class="table table-bordered bg-warning text-info">
+<table class="table table-bordered bg-info text-dark">
     <thead>
         <tr>
             <th>Id</th>
+            <th>Code</th>
             <th>Name</th>
-            <th>Description</th>
             <th>Price</th>
+            <th>Action</th>
         </tr>        
     </thead>
     <tbody>
         <tr *ngFor="let item of itemList">
             <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.description}}</td>
+            <td>{{item.code}}</td>
+            <td>{{item.itemName}}</td>
             <td>{{item.price}}</td>
+            <td>
+                <button class="btn btn-success" (click)="edit(item.id)">Edit</button>
+            </td>
         </tr>
     </tbody>
 </table>

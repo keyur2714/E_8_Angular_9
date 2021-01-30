@@ -23,6 +23,9 @@ const routes: Routes = [
       },
       {
         path : 'item-entry' , component : ItemEntryComponent        
+      },
+      {
+        path : 'item-update/:id' , component : ItemEntryComponent        
       }
     ]
   },

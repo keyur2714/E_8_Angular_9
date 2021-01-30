@@ -24,9 +24,9 @@ export class AuthGuardService implements CanActivate , CanActivateChild{
 
     canActivateChild(childRoute: import("@angular/router").ActivatedRouteSnapshot, state: import("@angular/router").RouterStateSnapshot): boolean  {
         console.log(childRoute.params);
-        alert("Child" + state.url +" "+this.authService.loggedInUserRole);
+        //alert("Child" + state.url +" "+this.authService.loggedInUserRole);
         let role = this.authService.loggedInUserRole;        
-        if(role === 'basicuser' && state.url === '/admin/item-entry'){
+        if(role === 'USER' && state.url === '/admin/item-entry'){
             alert("You don't have permission to add new items.");
             return false;
         }
