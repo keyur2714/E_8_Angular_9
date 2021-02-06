@@ -28,7 +28,7 @@
       "id": 2,
       "code": "GTEA",
       "itemName": "Green Tea",
-      "price": "15"
+      "price": "20"
     },
     {
       "id": 3,
@@ -47,12 +47,6 @@
       "code": "COFFEE",
       "itemName": "Hot Coffee",
       "price": 20
-    },
-    {
-      "id": 6,
-      "code": "BCOFFEE",
-      "itemName": "Black Coffee",
-      "price": 25
     },
     {
       "id": "7",

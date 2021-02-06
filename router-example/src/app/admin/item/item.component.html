@@ -1,4 +1,4 @@
-<table class="table table-bordered bg-info text-dark">
+<table class="table table-bordered bg-dark text-warning">
     <thead>
         <tr>
             <th>Id</th>
@@ -15,7 +15,8 @@
             <td>{{item.itemName}}</td>
             <td>{{item.price}}</td>
             <td>
-                <button class="btn btn-success" (click)="edit(item.id)">Edit</button>
+                <button class="btn btn-success m-1" (click)="edit(item.id)">Edit</button>
+                <button class="btn btn-danger m-1" (click)="delete(item.id)">Delete</button>
             </td>
         </tr>
     </tbody>

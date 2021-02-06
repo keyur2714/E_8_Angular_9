@@ -33,4 +33,16 @@ export class ItemComponent implements OnInit {
    this.router.navigate(['admin/item-update',itemId]);
   }
 
+  delete(itemId : number) : void {
+    let confirmMsg = confirm("Are you sure want to delete Item with id : "+itemId + "?");
+    if(confirmMsg){
+      this.itemService.deleteItemById(itemId).subscribe(
+        ()=>{
+          alert("Item Deleted with Id : "+itemId);
+          this.getItemList();
+        }
+      )
+    }
+  }
+
 }
