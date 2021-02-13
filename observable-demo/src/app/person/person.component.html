@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of personList">
+            <td>{{person.id}}</td>
+            <td>{{person.name}}</td>
+            <td>{{person.city}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul>
+    <li *ngFor="let name of personCapitalNames">{{name}}</li>
+</ul>
