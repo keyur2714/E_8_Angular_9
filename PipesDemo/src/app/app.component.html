@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Pipes Demo</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="co">
+      {{msg | uppercase}}
+    </div>
+    <div class="col">
+      {{'Hi' | lowercase | uppercase}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{person | json | uppercase}}
+    </div>
+    <div class="col">
+      New Number : {{numbers | async}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Birth Date : {{birthDate | date : 'MM/dd/yyyy hh:mm:ss a'}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Salary : {{salary | currency : 'USD'}}
+    </div>
+    <div class="col">
+      {{msg | welcome | uppercase | lowercase}}      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Account Number Is : {{accountNumber | mask : '#'}}
+    </div>
+    <div class="col">
+      Mobile Number Is : {{mobileNumber | mask : '*' : 3}}
+    </div>
+    <div class="col">
+      {{pinCode | mask : '@' : 2}}
+    </div>
+  </div>
+</div>
