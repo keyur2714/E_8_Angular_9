@@ -1,0 +1,23 @@
+<table class="table table-bordered bg-dark text-warning">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of itemList">
+            <td>{{item.id}}</td>
+            <td>{{item.code}}</td>
+            <td>{{item.itemName}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <button class="btn btn-success m-1" (click)="edit(item.id)">Edit</button>
+                <button class="btn btn-danger m-1" (click)="delete(item.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

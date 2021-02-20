@@ -1,0 +1,25 @@
+<form #f=ngForm (ngSubmit)="save(f)">
+    <div class="row form-group">
+        <div class="col-sm-4"><sup>*</sup>Item Id:</div>
+        <div class="col-sm-4"><input type="text" required name=id [(ngModel)]="item.id" [readonly]="updateId !== -1" class="form-control"></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4"><sup>*</sup>Item Code:</div>
+        <div class="col-sm-4"><input type="text" required name=code [(ngModel)]="item.code" class="form-control"></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4"><sup>*</sup>Item Name:</div>
+        <div class="col-sm-4"><input type="text" required name=name [(ngModel)]="item.itemName" class="form-control"></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4"><sup>*</sup>Item Price:</div>
+        <div class="col-sm-4"><input type="text" required name=price [(ngModel)]="item.price" class="form-control"></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <button type="submit" [disabled]="f.invalid" class="btn btn-primary m-1" *ngIf="updateId === -1">Save</button>
+            <button type="submit" [disabled]="f.invalid" class="btn btn-primary m-1" *ngIf="updateId !== -1">Update</button>
+            <button type="button" class="btn btn-secondary m-1" (click)="back()">Back</button>
+        </div>
+    </div>
+</form>
